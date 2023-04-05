@@ -10,7 +10,7 @@ def index(request: HttpRequest):
     return render(request, 'core/index.html', context)
 
 
-def login(request: HttpRequest):
+def vw_login(request: HttpRequest):
     context = {'form': LoginForm}
 
     if request.method == "POST":
