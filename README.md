@@ -5,7 +5,7 @@ Setup:
 
 Um den Server zu starten, in noodle_grounds/:
 
-```py manage.py runserver```
+```py manage.py runserver 8000```
 
 Lauffähige Seiten:
 
