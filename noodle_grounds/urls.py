@@ -30,4 +30,7 @@ urlpatterns = [
     # Games
     path('game1', game1, name="game1"),
     path('game2', game2, name="game2"),
+
+    # API
+    path('api/', include('api.urls')),
 ]
