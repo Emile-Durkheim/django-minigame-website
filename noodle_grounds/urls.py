@@ -18,10 +18,16 @@ from django.contrib import admin
 from django.urls import path, include
 
 from core.views import login, index
+from games.views import game1, game2
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    
+    # Core
     path('', index, name='index'),
     path('login/', login, name="login"),
-    path('', include('games.urls'), name="games")
+    
+    # Games
+    path('game1', game1, name="game1"),
+    path('game2', game2, name="game2"),
 ]
