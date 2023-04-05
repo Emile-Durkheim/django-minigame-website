@@ -5,6 +5,11 @@ from django.contrib.auth import authenticate, login, logout
 from .django_forms import LoginForm
 
 # Create your views here.
+def index(request: HttpRequest):
+    context = {}
+    return render(request, 'core/index.html', context)
+
+
 def login(request: HttpRequest):
     context = {'form': LoginForm}
 
