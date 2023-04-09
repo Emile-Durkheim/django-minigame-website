@@ -10,6 +10,11 @@
 
 <form action="{% url 'register' %}" method="POST">{% csrf_token %}
   <div>
+    <label class="form-label" for="username">Nutzername</label>
+    {{ form.username }}
+  </div>
+
+  <div>
     <label class="form-label" for="email">E-Mail</label>
     {{ form.email }}
   </div>
