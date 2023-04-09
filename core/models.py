@@ -35,7 +35,7 @@ class UserManager(BaseUserManager):
         user.is_admin = True
         user.save(using=self._db)
         return user
-
+    
 
 class User(AbstractBaseUser):
     email = models.EmailField("E-Mail", max_length=255, unique=True)
@@ -65,3 +65,5 @@ class User(AbstractBaseUser):
         "Is the user a member of staff?"
         # Simplest possible answer: All admins are staff
         return self.is_admin
+
+    
