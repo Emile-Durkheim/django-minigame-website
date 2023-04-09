@@ -1,0 +1,33 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+
+
+{# Error message #}
+{% if message %}
+  <h1>{{ message }}</h1>
+{% endif %}
+
+<form action="{% url 'register' %}" method="POST">{% csrf_token %}
+  <div>
+    <label class="form-label" for="email">E-Mail</label>
+    {{ form.email }}
+  </div>
+
+  <div>
+    <label class="form-label" for="password">Passwort</label>
+    {{ form.password }}
+  </div>
+
+  <div>
+    <label class="form-label" for="password2">Passwort wiederholen</label>
+    {{ form.password2 }}
+  </div>
+
+  <button class="btn btn-primary" type="submit">Registrieren</button>
+</form>
+
+{% if errors %}{{errors}}{% endif %}
+
+
+{% endblock content %}

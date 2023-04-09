@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from core.views import vw_login, index
+from core.views import vw_login, vw_register, index
 from games.views import game1, game2
 
 urlpatterns = [
@@ -26,6 +26,7 @@ urlpatterns = [
     # Core
     path('', index, name='index'),
     path('login/', vw_login, name="login"),
+    path('register/', vw_register, name="register"),
     
     # Games
     path('game1', game1, name="game1"),
