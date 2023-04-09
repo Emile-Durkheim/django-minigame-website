@@ -3,10 +3,30 @@
 {% block content %}
 
 
-{# Error message #}
-{% if message %}
-  <h1>{{ message }}</h1>
+{# Error messages #}
+{% if has_error_messages %}
+
+  <div class="alert alert-danger" role="alert">
+    <ul>
+      {% for message in messages %}
+        <li>{{ message }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+
 {% endif %}
+
+{# Success message #}
+{% if has_success_messages %}
+
+  <div class="alert alert-success" role="alert">
+    {% for message in messages %}
+      {{ message }}
+    {% endfor %}
+  </div>
+
+{% endif %}
+
 
 <form action="{% url 'register' %}" method="POST">{% csrf_token %}
   <div>
