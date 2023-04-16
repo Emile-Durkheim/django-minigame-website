@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.urls import path, include
 
 from core.views import vw_login, vw_register, index
-from games.views import game1, game2
+from games.views import sampleGame  # Hier die Minispiel View von /games/views.py importieren
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -28,9 +28,8 @@ urlpatterns = [
     path('login/', vw_login, name="login"),
     path('register/', vw_register, name="register"),
     
-    # Games
-    path('game1', game1, name="game1"),
-    path('game2', game2, name="game2"),
+    # Games; hier Pfad zur Minispiel View definieren
+    path('sampleGame', sampleGame, name="sampleGame"),
 
     # API
     path('api/', include('api.urls')),

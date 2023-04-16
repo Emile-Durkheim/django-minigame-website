@@ -1,20 +1,40 @@
-Setup:
+# First steup
 
-```pip install django```
-```pip install djangorestframework```
+Installieren der Packages: `pip install django` & `pip install djangorestframework`
 
-Um den Server zu starten, in noodle_grounds/:
+VSCode Extensions: Django
 
-```py manage.py runserver 8000```
-
-Lauffähige Seiten:
+## Lauffähige Seiten:
 
 - http://127.0.0.1:8000
 - http://127.0.0.1:8000/admin (root@root.root, adminadmin)
 - http://127.0.0.1:8000/login (testuser1@testuser1.com, testuser1)
 - http://127.0.0.1:8000/register 
-- http://127.0.0.1:8000/game1
-- http://127.0.0.1:8000/game2
+- http://127.0.0.1:8000/sampleGame
 - http://127.0.0.1:8000/api/games
 
-Die Frontend HTML-Files befinden sich jeweils in core/templates/core und games/templates/games, und alle weiteren Files (.css, .js, .png) befinden sich in den respektiven core/static/core und games/static/games Ordnern.
+# Anleitungen
+
+## Server starten
+
+`py manage.py runserver [port, default=8000]` (in noodle_grounds/)
+
+## Spiel anlegen
+
+1. HTML Template anlegen: Eine /games/templates/games/<spielname>.html Datei anlegen. Siehe sampleGame.html, Gerüst kann einfach kopiert werden.
+
+2. Ordner für statische Dateien anlegen: Einen /games/static/games/<spielname> Ordner anlegen. Hier sollten alle .js, .css, .png, ..., etc. Dateien gespeichert werden, auf welche die <spielname>.html zeigt. 
+
+3. View anlegen: `def <spielname>:` Funktion in games/views.py anlegen. Siehe `def sampleGame:`; Funktionsinhalt kann einfach kopiert werden.
+
+4. URL-Routing einrichten: 
+- In /noodle_grounds/urls.py zunächst view importieren. (`from games.views import sampleGame, <spielname>`)
+- Dann in urlpatterns Liste speichern: `path('<spielname', <spielname>, name="<spielname>")
+- (Side-note: name= wird für internes URL-Routing verwendet. zB wenn ein HTML-Link zur View von sampleGame erstellt werden soll, schreibt man <a href="{% url 'sampleGame' %}">. Wäre name="SAMPLEGAME", so würde <a href="{% url 'SAMPLEGAME' %}"> darauf zeigen.)
+
+4. Spiel in Datenbank anlegen. Am einfachsten zu erledigen im Admin-Panel: (http://127.0.0.1:8000/admin, email: root@root.root, pw: adminadmin).
+internal_name auf <spielname> setzen. (entsprechend dem Namen des statischen Ordners und des name= aus views.py)
+
+# Allgemein
+
+- models.py: Hier wird das Datenbankschema definiert. Jede Klasse = Ein Table, jedes Attribut = Eine Spalte. https://docs.djangoproject.com/en/4.2/intro/tutorial02/
