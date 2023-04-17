@@ -1,6 +1,6 @@
-# First steup
+# Installation
 
-Installieren der Packages: `pip install django` & `pip install djangorestframework`
+Installieren der Packages; in CMD: `pip install django` & `pip install djangorestframework`
 
 VSCode Extensions: Django
 

@@ -9,12 +9,23 @@ from .models import Game
 
 # Create your views here.
 def sampleGame(request: HttpRequest):
-    # Äquivalent zu game = SELECT * FROM games WHERE internal_name = "sampleGAME"
-    # game hat nun Attribute .title, .description, .internal_name
-    game = Game.objects.get(internal_name="sampleGame")  # <- internal_name auf <spielname> anpassen
+    """
+    Erklärung:
 
-    # Wenn auf das game Objekt in sampleGame.html zugegriffen soll, muss es in einem dict definiert und an render() weitergegeben werden
+    "game = Game.objects.get(internal_name='sampleGame')" ist quasi äquivalent zu einem "SELECT * FROM games 
+    WHERE internal_name = 'sampleGame'" Statement. Das Objekt game repräsentiert die Zeile mit dem internal_name
+    'sampleGame', die Attribute (game.title, game.description...) repräsentieren die Spalten und den Inhalt der Zeile.
+
+    "context = {'game': game}" wird später in render() verwendet, um zu bestimmen, welche Variablen im sampleGame.html zur Verfügung
+    stehen sollen. So kann man den Spieltitel in der HTML Datei mit {{ game.title }} aufrufen. Würde { 'g': game } als context 
+    definier werden, müsste man in der HTML-Datei {{ g.title }} aufrufen.
+
+    "return render(request, 'games/sampleGame.html', context)" gibt dem Server die Anweisung, eine HTTPResponse mit einer gegebenen,
+    gerenderten .html Datei zu versenden. Auch könnte hier etwa "return Http404" stehen, um einen 404 Fehlermeldung samt Fehlerseite
+    zu senden.
+    """
+    game = Game.objects.get(internal_name='sampleGame')  # <- internal_name auf <spielname> anpassen
+
     context = {'game': game}
 
-    # Gibt dem Server die Anweisung, ein gerendertes HTML-Dokument als HTTPResponse zu schicken.
     return render(request, 'games/sampleGame.html', context)  # <- .html auf <spielname>.html ausbessern
