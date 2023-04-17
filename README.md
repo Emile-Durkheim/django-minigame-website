@@ -17,7 +17,7 @@ VSCode Extension installieren: Django (Siehe Extension Beschreibung, um Django-H
 
 ## Server starten
 
-`py manage.py runserver [port, default=8000]` (in noodle_grounds/)
+`py manage.py runserver [port]` (in noodle_grounds/)
 
 ## Spiel anlegen
 
