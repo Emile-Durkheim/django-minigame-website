@@ -29,11 +29,9 @@ VSCode Extension installieren: Django (Siehe Extension Beschreibung, um Django-H
 
 4. URL-Routing einrichten: 
   - In `/noodle_grounds/urls.py` zunächst view importieren. (`from games.views import sampleGame, <spielname>`)
-  - Dann in urlpatterns Liste speichern: `path('<spielname', <spielname>, name="<spielname>")`
-  - (Side-note: name= wird für internes URL-Routing verwendet. zB wenn ein HTML-Link zur View von sampleGame erstellt werden soll, schreibt man \<a href="{% url 'sampleGame' %}">. Wäre name="SAMPLEGAME", so würde \<a href="{% url 'SAMPLEGAME' %}"> darauf zeigen.)
+  - Dann in urlpatterns Liste speichern: `path('<spielname', <spielname>, name="<spielname>")` (urlpattern zeigt nun auf View, und View verarbeitet die Request des Clients)
 
-4. Spiel in Datenbank anlegen. Am einfachsten zu erledigen im Admin-Panel: (http://127.0.0.1:8000/admin, email: root@root.root, pw: adminadmin). 
-  - internal_name auf \<spielname> setzen. (entsprechend dem Namen des statischen Ordners und des name= aus views.py)
+4. Spiel in Datenbank anlegen. Am einfachsten zu erledigen im Admin-Panel: http://127.0.0.1:8000/admin (email: root@root.root, pw: adminadmin). 
 
 # Allgemein
 
