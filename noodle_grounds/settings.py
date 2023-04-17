@@ -126,9 +126,9 @@ USE_TZ = True
 STATIC_ROOT = BASE_DIR/'collectstatic'
 STATIC_URL = 'static/'
 
-# STATICFILE_DIRS = [
-#     BASE_DIR/'node_modules'
-# ]
+STATICFILE_DIRS = [
+    BASE_DIR/'node_modules'
+]
 
 
 STATICFILE_FINDERS = [

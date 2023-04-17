@@ -1,0 +1,23 @@
+{
+  "name": "noodle_grounds",
+  "version": "1.0.0",
+  "description": "Installieren der Packages: `pip install django` & `pip install djangorestframework`",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "ncp ./node_modules ./games/static/games/libs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Emile-Durkheim/django-minigame-website.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Emile-Durkheim/django-minigame-website/issues"
+  },
+  "homepage": "https://github.com/Emile-Durkheim/django-minigame-website#readme",
+  "dependencies": {
+    "ncp": "^2.0.0"
+  }
+}
