@@ -35,4 +35,12 @@ VSCode Extension installieren: Django (Siehe Extension Beschreibung, um Django-H
 
 # Allgemein
 
+- Django HTML-Templating Language: https://docs.djangoproject.com/en/4.1/ref/templates/language/
+
 - models.py: Hier wird das Datenbankschema definiert. Jede Klasse = Ein Table, jedes Attribut = Eine Spalte. https://docs.djangoproject.com/en/4.2/intro/tutorial02/
+
+- /templates/ Ordner: Für alle HTML-Dateien. Diese werden in views.py in render() geladen. /templates/ Ordner kann in jeder App existieren.*
+
+- /static/ Ordner: Für alles, was nicht .html ist; daher .js, .css, .png... Wenn zB `static/games/noodleJump/thumb.png` Datei geladen werden soll, würde dies über `<img src="{% static 'games/noodleJump/thumb.png' %}">` geschehen. /static/ Ordner kann in jeder App existieren.* Notiz: Wird {% static '' %} Template-Funktion verwendet, muss am Anfang der .html-Datei {% load static %} aufgerufen werden.
+
+\* Django sieht alle /static/ und /template/ Ordner als einen einzelnen Ordner. Gibt es also `games/static/game.png` und `core/static/core.png`, wird in einer HTML-Datei darauf immer über {% static 'game.png' %} und {% static 'core.png' %} zugegriffen, ohne auf Elternordner zu verweisen. Namespacing möglich über Unterordner: Wenn Pfad nun aussieht wie `games/static/games/game.png` und `core/static/core/core.png`, dann kann zugegriffen werden über {% static 'games/game.png' %} und {% static 'core/core.png' %}: Keine Kollisionsgefahr.
