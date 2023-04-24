@@ -25,11 +25,12 @@ VSCode Extension installieren: Django (Siehe Extension Beschreibung, um Django-H
 
 2. Ordner für statische Dateien anlegen: Einen `/games/static/games/<spielname>` Ordner anlegen. Hier sollten alle .js, .css, .png... Dateien gespeichert werden, auf welche die \<spielname>.html verweist. 
 
-3. View anlegen: `def <spielname>:` Funktion in games/views.py anlegen. Siehe `def sampleGame:`; Funktionsinhalt kann kopiert werden, nur der Spielname sollte in den Strings angepasst werden.
-* Django sieht alle /static/ und /template/ Ordner als einen einzelnen Ordner. Gibt es also games/static/game.png und core/static/core.png, wird in einer HTML-Datei darauf immer über {% static 'game.png' %} und {% static 'core.png' %} zugegriffen, ohne auf Elternordner zu verweisen. Namespacing möglich über Unterordner: Wenn Pfad nun aussieht wie games/static/games/game.png und core/static/core/core.png, dann kann zugegriffen werden über {% static 'games/game.png' %} und {% static 'core/core.png' %}: Keine Kollisionsgefahr.
+3. View anlegen: `def <spielname>:` Funktion in games/views.py anlegen. Siehe `def sampleGame:`; Funktionsinhalt kann kopiert werden, nur der Spielname sollte in den Strings angepasst werden. Die View bestimmt, welche Response an den Client geschickt werden soll; in diesem Fall eine gerenderte HTML-Datei.
+
 4. URL-Routing einrichten: 
   - In `/noodle_grounds/urls.py` zunächst view importieren. (`from games.views import sampleGame, <spielname>`)
   - Dann in urlpatterns Liste speichern: `path('<spielname', <spielname>, name="<spielname>")` (urlpattern zeigt nun auf View, und View verarbeitet die Client-Request und schickt über return eine Response)
+  - Das URL-Routing bestimmt, welche View bei welchem URL-Aufruf geladen werden soll. In unserem Fall die View unseres Spiels, da diese die HTML-Seite für das Spiel returned.
 
 4. Spiel in Datenbank anlegen. Am einfachsten zu erledigen im Admin-Panel: http://127.0.0.1:8000/admin (email: root@root.root, pw: adminadmin). 
 
