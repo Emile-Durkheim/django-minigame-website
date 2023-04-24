@@ -37,7 +37,7 @@ VSCode Extension installieren: Django (Siehe Extension Beschreibung, um Django-H
 
 - Django HTML-Templating Language: https://docs.djangoproject.com/en/4.1/ref/templates/language/
 
-- models.py: Hier wird das Datenbankschema definiert. Jede Klasse = Ein Table, jedes Attribut = Eine Spalte. https://docs.djangoproject.com/en/4.2/intro/tutorial02/
+- models.py: Hier wird das Datenbankschema definiert. Jede Klasse = Ein Table, jedes Attribut = Eine Spalte. models.py kann in jeder App existieren. https://docs.djangoproject.com/en/4.2/intro/tutorial02/
 
 - /templates/ Ordner: Für alle HTML-Dateien. Diese werden in views.py in render() geladen. /templates/ Ordner kann in jeder App existieren.*
 
