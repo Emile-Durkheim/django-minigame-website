@@ -38,9 +38,9 @@ VSCode Extension installieren: Django (Siehe Extension Beschreibung, um Django-H
 
 - Django HTML-Templating Language: https://docs.djangoproject.com/en/4.1/ref/templates/language/
 
-- App: Jeder Ordner außer noodle_grounds (also /core/, /games/ und /api/) ist eine "App". Hilft, verschiedene Komponenten von einander separat zu halten.
+- App: Jeder Ordner außer noodle_grounds (also /core/, /games/ und /api/) ist eine "App". Sinn dahinter ist, dass verschiedene Komponenten von einander separat gehalten werden. Jede App hat eigene Views, eigene HTML-Templates, eigene Static-Files, unter Umständen eigenes URL-Routing und eigene Datenbank-Modelle, etc. In unserem Fall besitzt /core/ und /games/ eigene Views, HTML und Static-Files, und /api/ nur eine eigene View. URL-Routing wird in unserem Fall global über eine einzige urls.py in /noodle_grounds/ gehandelt. /noodle_grounds/ beinhaltet projektübergreifende Einstellungsdateien. 
 
-- models.py: Hier wird das Datenbankschema definiert. Jede Klasse = Ein Table, jedes Attribut = Eine Spalte. models.py kann in jeder App existieren. Nachdem models.py angepasst wurde (also effektiv Datenbankschma verändert wurde), muss `py manage.py makemigrations` und `py manage.py migrate` ausgeführt werden. https://docs.djangoproject.com/en/4.2/intro/tutorial02/
+- models.py: Hier wird das Datenbankschema/die Datenbankmodelle definiert. Jede Klasse = Ein Table, jedes Attribut = Eine Spalte. models.py kann in jeder App existieren. Nachdem models.py angepasst wurde (also effektiv Datenbankschma verändert wurde), muss `py manage.py makemigrations` und `py manage.py migrate` ausgeführt werden. https://docs.djangoproject.com/en/4.2/intro/tutorial02/
 
 - /templates/ Ordner: Für alle HTML-Dateien. Diese werden in views.py in render() geladen. /templates/ Ordner kann in jeder App existieren.*
 
